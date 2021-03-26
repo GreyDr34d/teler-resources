@@ -918,7 +918,7 @@
       {
         "id":"78",
         "rule":"(?:%23.*?%0A)",
-        "description":"检测到SQL注释符",
+        "description":"Detects SQL comment filter evasion",
         "tags":{
           "tag":[
             "format string"

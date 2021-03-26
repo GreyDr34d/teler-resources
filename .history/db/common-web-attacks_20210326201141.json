@@ -885,7 +885,7 @@
       {
         "id":"75",
         "rule":"(?:(((.*)\\%[c|d|i|e|f|g|o|s|u|x|p|n]){8}))",
-        "description":"检测到寻找格式字符串攻击",
+        "description":"Looking for a format string attack",
         "tags":{
           "tag":"format string"
         },
@@ -894,7 +894,7 @@
       {
         "id":"76",
         "rule":"(?:(union(.*)select(.*)from))",
-        "description":"检测到基本的SQL注入。常见的MySQL，Oracle及其他攻击字符串.",
+        "description":"Looking for basic sql injection. Common attack string for mysql, oracle and others.",
         "tags":{
           "tag":[
             "sql injection",
@@ -906,7 +906,7 @@
       {
         "id":"77",
         "rule":"(?:^(-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|1e309)$)",
-        "description":"检测到整数溢出攻击",
+        "description":"Looking for intiger overflow attacks, these are taken from skipfish, except 2.2250738585072007e-308 is the \"magic number\" crash",
         "tags":{
           "tag":[
             "sql injection",
@@ -918,7 +918,7 @@
       {
         "id":"78",
         "rule":"(?:%23.*?%0A)",
-        "description":"检测到SQL注释符",
+        "description":"Detects SQL comment filter evasion",
         "tags":{
           "tag":[
             "format string"

@@ -4,7 +4,7 @@
       {
         "id":"1",
         "rule":"(?:\"[^\"]*[^-]?>)|(?:[^\\w\\s]\\s*\\\/>)|(?:>\")",
-        "description":"检测到html注入,包含空格的攻击",
+        "description":"发现html注入,包含空格的攻击",
         "tags":{
           "tag":[
             "xss",
@@ -16,7 +16,7 @@
       {
         "id":"2",
         "rule":"(?:\"+.*[<=]\\s*\"[^\"]+\")|(?:\"\\s*\\w+\\s*=)|(?:>\\w=\\\/)|(?:#.+\\)[\"\\s]*>)|(?:\"\\s*(?:src|style|on\\w+)\\s*=\\s*\")|(?:[^\"]?\"[,;\\s]+\\w*[\\[\\(])",
-        "description":"检测到js标签属性注入,包含空格",
+        "description":"发现js标签属性注入,包含空格",
         "tags":{
           "tag":[
             "xss",
@@ -28,7 +28,7 @@
       {
         "id":"3",
         "rule":"(?:^>[\\w\\s]*<\\\/?\\w{2,}>)",
-        "description":"检测到未引用的属性注入",
+        "description":"发现未引用的属性注入",
         "tags":{
           "tag":[
             "xss",
@@ -816,7 +816,7 @@
       {
         "id":"68",
         "rule":"(?:[\\s\\\/\"]+[-\\w\\\/\\\\\\*]+\\s*=.+(?:\\\/\\s*>))",
-        "description":"检测到含有模糊属性属性截断注入",
+        "description":"发现含有模糊属性属性截断注入",
         "tags":{
           "tag":[
             "xss",
@@ -828,7 +828,7 @@
       {
         "id":"69",
         "rule":"(?:(?:msgbox|eval)\\s*\\+|(?:language\\s*=\\*vbscript))",
-        "description":"检测到基本VBScript注入尝试",
+        "description":"Finds basic VBScript injection attempts",
         "tags":{
           "tag":[
             "xss",
@@ -840,7 +840,7 @@
       {
         "id":"70",
         "rule":"(?:\\[\\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|or)\\])",
-        "description":"检测到基本MongoDB的SQL注入尝试",
+        "description":"Finds basic MongoDB SQL injection attempts",
         "tags":{
           "tag":"sql injection"
         },
@@ -849,7 +849,7 @@
       {
         "id":"71",
         "rule":"(?:[\\s\\d\\\/\"]+(?:on\\w+|style|poster|background)=[$\"\\w])|(?:-type\\s*:\\s*multipart)",
-        "description":"检测到恶意属性注入尝试和MHTML攻击",
+        "description":"finds malicious attribute injection attempts and MHTML attacks",
         "tags":{
           "tag":[
             "xss",
@@ -861,7 +861,7 @@
       {
         "id":"72",
         "rule":"(?:(sleep\\((\\s*)(\\d*)(\\s*)\\)|benchmark\\((.*)\\,(.*)\\)))",
-        "description":"检测到使用sleep()或benchmark的延时SQL注入",
+        "description":"Detects blind sql injection tests using sleep() or benchmark().",
         "tags":{
           "tag":[
             "sql injection",
@@ -873,7 +873,7 @@
       {
         "id":"73",
         "rule":"(?:(\\%SYSTEMROOT\\%))",
-        "description":"检测到攻击者试图找到一个文件来读取或写入",
+        "description":"An attacker is trying to locate a file to read or write.",
         "tags":{
           "tag":[
             "files",
@@ -885,7 +885,7 @@
       {
         "id":"75",
         "rule":"(?:(((.*)\\%[c|d|i|e|f|g|o|s|u|x|p|n]){8}))",
-        "description":"检测到寻找格式字符串攻击",
+        "description":"Looking for a format string attack",
         "tags":{
           "tag":"format string"
         },
@@ -894,7 +894,7 @@
       {
         "id":"76",
         "rule":"(?:(union(.*)select(.*)from))",
-        "description":"检测到基本的SQL注入。常见的MySQL，Oracle及其他攻击字符串.",
+        "description":"Looking for basic sql injection. Common attack string for mysql, oracle and others.",
         "tags":{
           "tag":[
             "sql injection",
@@ -906,7 +906,7 @@
       {
         "id":"77",
         "rule":"(?:^(-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|1e309)$)",
-        "description":"检测到整数溢出攻击",
+        "description":"Looking for intiger overflow attacks, these are taken from skipfish, except 2.2250738585072007e-308 is the \"magic number\" crash",
         "tags":{
           "tag":[
             "sql injection",
@@ -918,7 +918,7 @@
       {
         "id":"78",
         "rule":"(?:%23.*?%0A)",
-        "description":"检测到SQL注释符",
+        "description":"Detects SQL comment filter evasion",
         "tags":{
           "tag":[
             "format string"

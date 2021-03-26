@@ -4,7 +4,7 @@
       {
         "id":"1",
         "rule":"(?:\"[^\"]*[^-]?>)|(?:[^\\w\\s]\\s*\\\/>)|(?:>\")",
-        "description":"检测到html注入,包含空格的攻击",
+        "description":"发现html注入，包含空格的攻击",
         "tags":{
           "tag":[
             "xss",
@@ -16,7 +16,7 @@
       {
         "id":"2",
         "rule":"(?:\"+.*[<=]\\s*\"[^\"]+\")|(?:\"\\s*\\w+\\s*=)|(?:>\\w=\\\/)|(?:#.+\\)[\"\\s]*>)|(?:\"\\s*(?:src|style|on\\w+)\\s*=\\s*\")|(?:[^\"]?\"[,;\\s]+\\w*[\\[\\(])",
-        "description":"检测到js标签属性注入,包含空格",
+        "description":"发现js标签属性注入，包含空格",
         "tags":{
           "tag":[
             "xss",
@@ -28,7 +28,7 @@
       {
         "id":"3",
         "rule":"(?:^>[\\w\\s]*<\\\/?\\w{2,}>)",
-        "description":"检测到未引用的属性注入",
+        "description":"发现未引用的属性注入",
         "tags":{
           "tag":[
             "xss",
@@ -40,7 +40,7 @@
       {
         "id":"4",
         "rule":"(?:[+\\\/]\\s*name[\\W\\d]*[)+])|(?:;\\W*url\\s*=)|(?:[^\\w\\s\\\/?:>]\\s*(?:location|referrer|name)\\s*[^\\\/\\w\\s-])",
-        "description":"检测到URL-,名字-,JSON,并包含referer载荷的攻击",
+        "description":"检测到URL-，名字-，JSON，并包含referer载荷的攻击",
         "tags":{
           "tag":[
             "xss",
@@ -52,7 +52,7 @@
       {
         "id":"5",
         "rule":"(?:\\W\\s*hash\\s*[^\\w\\s-])|(?:\\w+=\\W*[^,]*,[^\\s(]\\s*\\()|(?:\\?\"[^\\s\"]\":)|(?:(?<!\\\/)__[a-z]+__)|(?:(?:^|[\\s)\\]\\}])(?:s|g)etter\\s*=)",
-        "description":"检测到包含哈希的XSS攻击有效载荷,setter的使用和属性重载",
+        "description":"检测到包含哈希的XSS攻击有效载荷，setter的使用和属性重载",
         "tags":{
           "tag":[
             "xss",
@@ -337,7 +337,7 @@
       {
         "id":"27",
         "rule":"(?:(?:vbs|vbscript|data):.*[,+])|(?:\\w+\\s*=\\W*(?!https?)\\w+:)|(jar:\\w+:)|(=\\s*\"?\\s*vbs(?:ript)?:)|(language\\s*=\\s?\"?\\s*vbs(?:ript)?)|on\\w+\\s*=\\*\\w+\\-\"?",
-        "description":"检测到数据：URL注入,VBS注入",
+        "description":"检测到数据：URL注入，VBS注入",
         "tags":{
           "tag":[
             "xss",
@@ -349,7 +349,7 @@
       {
         "id":"28",
         "rule":"(?:firefoxurl:\\w+\\|)|(?:(?:file|res|telnet|nntp|news|mailto|chrome)\\s*:\\s*[%&#xu\\\/]+)|(wyciwyg|firefoxurl\\s*:\\s*\\\/\\s*\\\/)",
-        "description":"检测到IE 火狐url注入,缓存投毒尝试和本地文件包含或执行",
+        "description":"检测到IE 火狐url注入，缓存投毒尝试和本地文件包含或执行",
         "tags":{
           "tag":[
             "xss",
@@ -363,7 +363,7 @@
       {
         "id":"29",
         "rule":"(?:binding\\s?=|moz-binding|behavior\\s?=)|(?:[\\s\\\/]style\\s*=\\s*[-\\\\])",
-        "description":"检测到binding和behavior注入",
+        "description":"Detects bindings and behavior injections",
         "tags":{
           "tag":[
             "xss",
@@ -376,7 +376,7 @@
       {
         "id":"30",
         "rule":"(?:=\\s*\\w+\\s*\\+\\s*\")|(?:\\+=\\s*\\(\\s\")|(?:!+\\s*[\\d.,]+\\w?\\d*\\s*\\?)|(?:=\\s*\\[s*\\])|(?:\"\\s*\\+\\s*\")|(?:[^\\s]\\[\\s*\\d+\\s*\\]\\s*[;+])|(?:\"\\s*[&|]+\\s*\")|(?:\\\/\\s*\\?\\s*\")|(?:\\\/\\s*\\)\\s*\\[)|(?:\\d\\?.+:\\d)|(?:]\\s*\\[\\W*\\w)|(?:[^\\s]\\s*=\\s*\\\/)",
-        "description":"检测到常见XSS级联模式",
+        "description":"Detects common XSS concatenation patterns 1\/2",
         "tags":{
           "tag":[
             "xss",
@@ -390,7 +390,7 @@
       {
         "id":"31",
         "rule":"(?:=\\s*\\d*\\.\\d*\\?\\d*\\.\\d*)|(?:[|&]{2,}\\s*\")|(?:!\\d+\\.\\d*\\?\")|(?:\\\/:[\\w.]+,)|(?:=[\\d\\W\\s]*\\[[^]]+\\])|(?:\\?\\w+:\\w+)",
-        "description":"检测到常见XSS级联模式",
+        "description":"Detects common XSS concatenation patterns 2\/2",
         "tags":{
           "tag":[
             "xss",
@@ -404,7 +404,7 @@
       {
         "id":"32",
         "rule":"(?:[^\\w\\s=]on(?!g\\&gt;)\\w+[^=_+-]*=[^$]+(?:\\W|\\&gt;)?)",
-        "description":"检测到可能存在的事件处理程序",
+        "description":"Detects possible event handlers",
         "tags":{
           "tag":[
             "xss",
@@ -416,7 +416,7 @@
       {
         "id":"33",
         "rule":"(?:\\<\\w*:?\\s(?:[^\\>]*)t(?!rong))|(?:\\<scri)|(<\\w+:\\w+)",
-        "description":"检测到混淆的JavaScript脚本标签,XML,包裹的HTML",
+        "description":"Detects obfuscated script tags and XML wrapped HTML",
         "tags":{
           "tag":"xss"
         },
@@ -425,7 +425,7 @@
       {
         "id":"34",
         "rule":"(?:\\<\\\/\\w+\\s\\w+)|(?:@(?:cc_on|set)[\\s@,\"=])",
-        "description":"检测到闭合标签和条件编译令牌中的属性",
+        "description":"Detects attributes in closing tags and conditional compilation tokens",
         "tags":{
           "tag":[
             "xss",
@@ -437,7 +437,7 @@
       {
         "id":"35",
         "rule":"(?:--[^\\n]*$)|(?:\\<!-|-->)|(?:[^*]\\\/\\*|\\*\\\/[^*])|(?:(?:[\\W\\d]#|--|{)$)|(?:\\\/{3,}.*$)|(?:<!\\[\\W)|(?:\\]!>)",
-        "description":"检测到常见的注释符",
+        "description":"Detects common comment types",
         "tags":{
           "tag":[
             "xss",
@@ -450,7 +450,7 @@
       {
         "id":"37",
         "rule":"(?:\\<base\\s+)|(?:<!(?:element|entity|\\[CDATA))",
-        "description":"检测到href注入和XML实体注入",
+        "description":"Detects base href injections and XML entity injections",
         "tags":{
           "tag":[
             "xss",
@@ -463,7 +463,7 @@
       {
         "id":"38",
         "rule":"(?:\\<[\\\/]?(?:[i]?frame|applet|isindex|marquee|keygen|script|audio|video|input|button|textarea|style|base|body|meta|link|object|embed|param|plaintext|xm\\w+|image|im(?:g|port)))",
-        "description":"检测可能是恶意的HTML元素,包括一些属性",
+        "description":"Detects possibly malicious html elements including some attributes",
         "tags":{
           "tag":[
             "xss",
@@ -478,7 +478,7 @@
       {
         "id":"39",
         "rule":"(?:\\\\x[01fe][\\db-ce-f])|(?:%[01fe][\\db-ce-f])|(?:&#[01fe][\\db-ce-f])|(?:\\\\[01fe][\\db-ce-f])|(?:&#x[01fe][\\db-ce-f])",
-        "description":"检测到null字符等危险字符",
+        "description":"Detects nullbytes and other dangerous characters",
         "tags":{
           "tag":[
            "file inclusion",
@@ -491,7 +491,7 @@
       {
         "id":"40",
         "rule":"(?:\\)\\s*when\\s*\\d+\\s*then)|(?:\"\\s*(?:#|--|{))|(?:\\\/\\*!\\s?\\d+)|(?:ch(?:a)?r\\s*\\(\\s*\\d)|(?:(?:(n?and|x?or|not)\\s+|\\|\\||\\&\\&)\\s*\\w+\\()",
-        "description":"检测到MySQL注释,条件和字符型注入",
+        "description":"Detects MySQL comments, conditions and ch(a)r injections",
         "tags":{
           "tag":[
             "sql injection",
@@ -504,7 +504,7 @@
       {
         "id":"41",
         "rule":"(?:[\\s()]case\\s*\\()|(?:\\)\\s*like\\s*\\()|(?:having\\s*[^\\s]+\\s*[^\\w\\s])|(?:if\\s?\\([\\d\\w]\\s*[=<>~])",
-        "description":"检测到if case SQL注入尝试",
+        "description":"Detects conditional SQL injection attempts",
         "tags":{
           "tag":[
             "sql injection",
@@ -517,7 +517,7 @@
       {
         "id":"42",
         "rule":"(?:\"\\s*or\\s*\"?\\d)|(?:\\\\x(?:23|27|3d))|(?:^.?\"$)|(?:(?:^[\"\\\\]*(?:[\\d\"]+|[^\"]+\"))+\\s*(?:n?and|x?or|not|\\|\\||\\&\\&)\\s*[\\w\"[+&!@(),.-])|(?:[^\\w\\s]\\w+\\s*[|-]\\s*\"\\s*\\w)|(?:@\\w+\\s+(and|or)\\s*[\"\\d]+)|(?:@[\\w-]+\\s(and|or)\\s*[^\\w\\s])|(?:[^\\w\\s:]\\s*\\d\\W+[^\\w\\s]\\s*\".)|(?:\\Winformation_schema|table_name\\W)",
-        "description":"检测到典型SQL注入的探测",
+        "description":"Detects classic SQL injection probings 1\/2",
         "tags":{
           "tag":[
             "sql injection",
@@ -530,7 +530,7 @@
       {
         "id":"43",
         "rule":"(?:\"\\s*\\*.+(?:or|id)\\W*\"\\d)|(?:\\^\")|(?:^[\\w\\s\"-]+(?<=and\\s)(?<=or\\s)(?<=xor\\s)(?<=nand\\s)(?<=not\\s)(?<=\\|\\|)(?<=\\&\\&)\\w+\\()|(?:\"[\\s\\d]*[^\\w\\s]+\\W*\\d\\W*.*[\"\\d])|(?:\"\\s*[^\\w\\s?]+\\s*[^\\w\\s]+\\s*\")|(?:\"\\s*[^\\w\\s]+\\s*[\\W\\d].*(?:#|--))|(?:\".*\\*\\s*\\d)|(?:\"\\s*or\\s[^\\d]+[\\w-]+.*\\d)|(?:[()*<>%+-][\\w-]+[^\\w\\s]+\"[^,])",
-        "description":"检测到典型SQL注入的探测",
+        "description":"Detects classic SQL injection probings 2\/2",
         "tags":{
           "tag":[
             "sql injection",
@@ -543,7 +543,7 @@
       {
         "id":"44",
         "rule":"(?:\\d\"\\s+\"\\s+\\d)|(?:^admin\\s*\"|(\\\/\\*)+\"+\\s?(?:--|#|\\\/\\*|{)?)|(?:\"\\s*or[\\w\\s-]+\\s*[+<>=(),-]\\s*[\\d\"])|(?:\"\\s*[^\\w\\s]?=\\s*\")|(?:\"\\W*[+=]+\\W*\")|(?:\"\\s*[!=|][\\d\\s!=+-]+.*[\"(].*$)|(?:\"\\s*[!=|][\\d\\s!=]+.*\\d+$)|(?:\"\\s*like\\W+[\\w\"(])|(?:\\sis\\s*0\\W)|(?:where\\s[\\s\\w\\.,-]+\\s=)|(?:\"[<>~]+\")",
-        "description":"检测到基本SQL身份验证绕过尝试",
+        "description":"Detects basic SQL authentication bypass attempts 1\/3",
         "tags":{
           "tag":[
             "sql injection",
@@ -556,7 +556,7 @@
       {
         "id":"45",
         "rule":"(?:union\\s*(?:all|distinct|[(!@]*)\\s*[([]*\\s*select)|(?:\\w+\\s+like\\s+\\\")|(?:like\\s*\"\\%)|(?:\"\\s*like\\W*[\"\\d])|(?:\"\\s*(?:n?and|x?or|not |\\|\\||\\&\\&)\\s+[\\s\\w]+=\\s*\\w+\\s*having)|(?:\"\\s*\\*\\s*\\w+\\W+\")|(?:\"\\s*[^?\\w\\s=.,;)(]+\\s*[(@\"]*\\s*\\w+\\W+\\w)|(?:select\\s*[\\[\\]()\\s\\w\\.,\"-]+from)|(?:find_in_set\\s*\\()",
-        "description":"检测到基本SQL身份验证绕过尝试",
+        "description":"Detects basic SQL authentication bypass attempts 2\/3",
         "tags":{
           "tag":[
             "sql injection",
@@ -569,7 +569,7 @@
       {
         "id":"46",
         "rule":"(?:in\\s*\\(+\\s*select)|(?:(?:n?and|x?or|not |\\|\\||\\&\\&)\\s+[\\s\\w+]+(?:regexp\\s*\\(|sounds\\s+like\\s*\"|[=\\d]+x))|(\"\\s*\\d\\s*(?:--|#))|(?:\"[%&<>^=]+\\d\\s*(=|or))|(?:\"\\W+[\\w+-]+\\s*=\\s*\\d\\W+\")|(?:\"\\s*is\\s*\\d.+\"?\\w)|(?:\"\\|?[\\w-]{3,}[^\\w\\s.,]+\")|(?:\"\\s*is\\s*[\\d.]+\\s*\\W.*\")",
-        "description":"检测到基本SQL身份验证绕过尝试",
+        "description":"Detects basic SQL authentication bypass attempts 3\/3",
         "tags":{
           "tag":[
             "sql injection",
@@ -582,7 +582,7 @@
       {
         "id":"47",
         "rule":"(?:[\\d\\W]\\s+as\\s*[\"\\w]+\\s*from)|(?:^[\\W\\d]+\\s*(?:union|select|create|rename|truncate|load|alter|delete|update|insert|desc))|(?:(?:select|create|rename|truncate|load|alter|delete|update|insert|desc)\\s+(?:(?:group_)concat|char|load_file)\\s?\\(?)|(?:end\\s*\\);)|(\"\\s+regexp\\W)|(?:[\\s(]load_file\\s*\\()",
-        "description":"检测到基本SQL注入和SQL本地文件包含尝试",
+        "description":"Detects concatenated basic SQL injection and SQLlocal file inclusion attempts",
         "tags":{
           "tag":[
             "sql injection",
@@ -595,7 +595,7 @@
       {
         "id":"48",
         "rule":"(?:@.+=\\s*\\(\\s*select)|(?:\\d+\\s*or\\s*\\d+\\s*[\\-+])|(?:\\\/\\w+;?\\s+(?:having|and|or|select)\\W)|(?:\\d\\s+group\\s+by.+\\()|(?:(?:;|#|--)\\s*(?:drop|alter))|(?:(?:;|#|--)\\s*(?:update|insert)\\s*\\w{2,})|(?:[^\\w]SET\\s*@\\w+)|(?:(?:n?and|x?or|not |\\|\\||\\&\\&)[\\s(]+\\w+[\\s)]*[!=+]+[\\s\\d]*[\"=()])",
-        "description":"检测堆叠SQL注入尝试",
+        "description":"Detects chained SQL injection attempts 1\/2",
         "tags":{
           "tag":[
             "sql injection",
@@ -607,7 +607,7 @@
       {
         "id":"49",
         "rule":"(?:\"\\s+and\\s*=\\W)|(?:\\(\\s*select\\s*\\w+\\s*\\()|(?:\\*\\\/from)|(?:\\+\\s*\\d+\\s*\\+\\s*@)|(?:\\w\"\\s*(?:[-+=|@]+\\s*)+[\\d(])|(?:coalesce\\s*\\(|@@\\w+\\s*[^\\w\\s])|(?:\\W!+\"\\w)|(?:\";\\s*(?:if|while|begin))|(?:\"[\\s\\d]+=\\s*\\d)|(?:order\\s+by\\s+if\\w*\\s*\\()|(?:[\\s(]+case\\d*\\W.+[tw]hen[\\s(])",
-        "description":"检测堆叠SQL注入尝试",
+        "description":"Detects chained SQL injection attempts 2\/2",
         "tags":{
           "tag":[
             "sql injection",
@@ -619,7 +619,7 @@
       {
         "id":"50",
         "rule":"(?:(select|;)\\s+(?:benchmark|if|sleep)\\s*?\\(\\s*\\(?\\s*\\w+)",
-        "description":"检测到包含额外查询的benchmark and sleep SQL注入尝试",
+        "description":"Detects SQL benchmark and sleep injection attempts including conditional queries",
         "tags":{
           "tag":[
             "sql injection",
@@ -631,7 +631,7 @@
       {
         "id":"51",
         "rule":"(?:create\\s+function\\s+\\w+\\s+returns)|(?:;\\s*(?:select|create|rename|truncate|load|alter|delete|update|insert|desc)\\s*[\\[(]?\\w{2,})",
-        "description":"检测到MySQL注入与UDF提权尝试",
+        "description":"Detects MySQL UDF injection and other data\/structure manipulation attempts",
         "tags":{
           "tag":[
             "sql injection",
@@ -643,7 +643,7 @@
       {
         "id":"52",
         "rule":"(?:alter\\s*\\w+.*character\\s+set\\s+\\w+)|(\";\\s*waitfor\\s+time\\s+\")|(?:\";.*:\\s*goto)",
-        "description":"检测到MySQL字符转换和MSSQL Dos攻击",
+        "description":"Detects MySQL charset switch and MSSQL DoS attempts",
         "tags":{
           "tag":[
             "sql injection",
@@ -655,7 +655,7 @@
       {
         "id":"53",
         "rule":"(?:procedure\\s+analyse\\s*\\()|(?:;\\s*(declare|open)\\s+[\\w-]+)|(?:create\\s+(procedure|function)\\s*\\w+\\s*\\(\\s*\\)\\s*-)|(?:declare[^\\w]+[@#]\\s*\\w+)|(exec\\s*\\(\\s*@)",
-        "description":"MySQL和PostgreSQL存储过程或函数注射",
+        "description":"Detects MySQL and PostgreSQL stored procedure\/function injections",
         "tags":{
           "tag":[
             "sql injection",
@@ -667,10 +667,11 @@
       {
         "id":"54",
         "rule":"(?:select\\s*pg_sleep)|(?:waitfor\\s*delay\\s?\"+\\s?\\d)|(?:;\\s*shutdown\\s*(?:;|--|#|\\\/\\*|{))",
-        "description":"检测到Postgres的sleep注,WAITFOR延时注入和关闭数据库尝试",
+        "description":"Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts",
         "tags":{
           "tag":[
-            "sql injection"
+            "sql injection",
+            "id"
           ]
         },
         "impact":"5"
@@ -678,11 +679,11 @@
       {
         "id":"55",
         "rule":"(?:\\sexec\\s+xp_cmdshell)|(?:\"\\s*!\\s*[\"\\w])|(?:from\\W+information_schema\\W)|(?:(?:(?:current_)?user|database|schema|connection_id)\\s*\\([^\\)]*)|(?:\";?\\s*(?:select|union|having)\\s*[^\\s])|(?:\\wiif\\s*\\()|(?:exec\\s+master\\.)|(?:union select @)|(?:union[\\w(\\s]*select)|(?:select.*\\w?user\\()|(?:into[\\s+]+(?:dump|out)file\\s*\")",
-        "description":"检测到MSSQL代码执行和信息收集尝试",
+        "description":"Detects MSSQL code execution and information gathering attempts",
         "tags":{
           "tag":[
             "sql injection",
-            "remote code excution"
+            "id"
           ]
         },
         "impact":"5"
@@ -690,10 +691,11 @@
       {
         "id":"56",
         "rule":"(?:merge.*using\\s*\\()|(execute\\s*immediate\\s*\")|(?:\\W+\\d*\\s*having\\s*[^\\s\\-])|(?:match\\s*[\\w(),+-]+\\s*against\\s*\\()",
-        "description":"检测到MATCH,AGAINST,EXECUTE,IMMEDIATE和HAVING注入",
+        "description":"Detects MATCH AGAINST, MERGE, EXECUTE IMMEDIATE and HAVING injections",
         "tags":{
           "tag":[
-            "sql injection"
+            "sql injection",
+            "id"
           ]
         },
         "impact":"5"
@@ -701,11 +703,11 @@
       {
         "id":"57",
         "rule":"(?:,.*[)\\da-f\"]\"(?:\".*\"|\\Z|[^\"]+))|(?:\\Wselect.+\\W*from)|((?:select|create|rename|truncate|load|alter|delete|update|insert|desc)\\s*\\(\\s*space\\s*\\()",
-        "description":"检测到MySQL注释-和空格混淆注射入,反引号闭合",
+        "description":"Detects MySQL comment-\/space-obfuscated injections and backtick termination",
         "tags":{
           "tag":[
             "sql injection",
-            "remote code excution"
+            "id"
           ]
         },
         "impact":"5"
@@ -713,7 +715,7 @@
       {
         "id":"58",
         "rule":"(?:@[\\w-]+\\s*\\()|(?:]\\s*\\(\\s*[\"!]\\s*\\w)|(?:<[?%](?:php)?.*(?:[?%]>)?)|(?:;[\\s\\w|]*\\$\\w+\\s*=)|(?:\\$\\w+\\s*=(?:(?:\\s*\\$?\\w+\\s*[(;])|\\s*\".*\"))|(?:;\\s*\\{\\W*\\w+\\s*\\()",
-        "description":"检测到代码注入尝试",
+        "description":"Detects code injection attempts 1\/3",
         "tags":{
           "tag":[
            "file inclusion",
@@ -726,7 +728,7 @@
       {
         "id":"59",
         "rule":"(?:(?:[;]+|(<[?%](?:php)?)).*(?:define|eval|file_get_contents|include|require|require_once|set|shell_exec|phpinfo|system|passthru|preg_\\w+|execute)\\s*[\"(@])",
-        "description":"检测到代码注入尝试",
+        "description":"Detects code injection attempts 2\/3",
         "tags":{
           "tag":[
            "file inclusion",
@@ -739,7 +741,7 @@
       {
         "id":"60",
         "rule":"(?:(?:[;]+|(<[?%](?:php)?)).*[^\\w](?:echo|print|print_r|var_dump|[fp]open))|(?:;\\s*rm\\s+-\\w+\\s+)|(?:;.*{.*\\$\\w+\\s*=)|(?:\\$\\w+\\s*\\[\\]\\s*=\\s*)",
-        "description":"检测到代码注入尝试",
+        "description":"Detects code injection attempts 3\/3",
         "tags":{
           "tag":[
            "file inclusion",
@@ -752,7 +754,7 @@
       {
         "id":"62",
         "rule":"(?:function[^(]*\\([^)]*\\))|(?:(?:delete|void|throw|instanceof|new|typeof)[^\\w.]+\\w+\\s*[([])|([)\\]]\\s*\\.\\s*\\w+\\s*=)|(?:\\(\\s*new\\s+\\w+\\s*\\)\\.)",
-        "description":"检测到常用函数声明和特殊JS运算符",
+        "description":"Detects common function declarations and special JS operators",
         "tags":{
           "tag":[
            "file inclusion",
@@ -765,10 +767,10 @@
       {
         "id":"63",
         "rule":"(?:[\\w.-]+@[\\w.-]+%(?:[01][\\db-ce-f])+\\w+:)",
-        "description":"检测到常见的邮件报头注入",
+        "description":"Detects common mail header injections",
         "tags":{
           "tag":[
-            "file inclusion",
+           "file inclusion",
             "spam"
           ]
         },
@@ -777,7 +779,7 @@
       {
         "id":"64",
         "rule":"(?:\\.pl\\?\\w+=\\w?\\|\\w+;)|(?:\\|\\(\\w+=\\*)|(?:\\*\\s*\\)+\\s*;)",
-        "description":"检测到Perl Echo ShellCode注入和LDAP向量",
+        "description":"Detects perl echo shellcode injection and LDAP vectors",
         "tags":{
           "tag":[
             "local file inclusion",
@@ -789,7 +791,7 @@
       {
         "id":"65",
         "rule":"(?:(^|\\W)const\\s+[\\w\\-]+\\s*=)|(?:(?:do|for|while)\\s*\\([^;]+;+\\))|(?:(?:^|\\W)on\\w+\\s*=[\\w\\W]*(?:on\\w+|alert|eval|print|confirm|prompt))|(?:groups=\\d+\\(\\w+\\))|(?:(.)\\1{128,})",
-        "description":"检测到基本XSS尝试",
+        "description":"Detects basic XSS DoS attempts",
         "tags":{
           "tag":[
             "remote file excution",
@@ -801,7 +803,7 @@
       {
         "id":"67",
         "rule":"(?:\\({2,}\\+{2,}:{2,})|(?:\\({2,}\\+{2,}:+)|(?:\\({3,}\\++:{2,})|(?:\\$\\[!!!\\])",
-        "description":"Detects unknown attack vectors based on PHPIDS Centrifuge detection检测到基于PHPIDS离心机检测的未知攻击向量",
+        "description":"Detects unknown attack vectors based on PHPIDS Centrifuge detection",
         "tags":{
           "tag":[
             "xss",
@@ -816,7 +818,7 @@
       {
         "id":"68",
         "rule":"(?:[\\s\\\/\"]+[-\\w\\\/\\\\\\*]+\\s*=.+(?:\\\/\\s*>))",
-        "description":"检测到含有模糊属性属性截断注入",
+        "description":"Finds attribute breaking injections including obfuscated attributes",
         "tags":{
           "tag":[
             "xss",
@@ -828,7 +830,7 @@
       {
         "id":"69",
         "rule":"(?:(?:msgbox|eval)\\s*\\+|(?:language\\s*=\\*vbscript))",
-        "description":"检测到基本VBScript注入尝试",
+        "description":"Finds basic VBScript injection attempts",
         "tags":{
           "tag":[
             "xss",
@@ -840,7 +842,7 @@
       {
         "id":"70",
         "rule":"(?:\\[\\$(?:ne|eq|lte?|gte?|n?in|mod|all|size|exists|type|slice|or)\\])",
-        "description":"检测到基本MongoDB的SQL注入尝试",
+        "description":"Finds basic MongoDB SQL injection attempts",
         "tags":{
           "tag":"sql injection"
         },
@@ -849,7 +851,7 @@
       {
         "id":"71",
         "rule":"(?:[\\s\\d\\\/\"]+(?:on\\w+|style|poster|background)=[$\"\\w])|(?:-type\\s*:\\s*multipart)",
-        "description":"检测到恶意属性注入尝试和MHTML攻击",
+        "description":"finds malicious attribute injection attempts and MHTML attacks",
         "tags":{
           "tag":[
             "xss",
@@ -861,7 +863,7 @@
       {
         "id":"72",
         "rule":"(?:(sleep\\((\\s*)(\\d*)(\\s*)\\)|benchmark\\((.*)\\,(.*)\\)))",
-        "description":"检测到使用sleep()或benchmark的延时SQL注入",
+        "description":"Detects blind sql injection tests using sleep() or benchmark().",
         "tags":{
           "tag":[
             "sql injection",
@@ -873,7 +875,7 @@
       {
         "id":"73",
         "rule":"(?:(\\%SYSTEMROOT\\%))",
-        "description":"检测到攻击者试图找到一个文件来读取或写入",
+        "description":"An attacker is trying to locate a file to read or write.",
         "tags":{
           "tag":[
             "files",
@@ -885,7 +887,7 @@
       {
         "id":"75",
         "rule":"(?:(((.*)\\%[c|d|i|e|f|g|o|s|u|x|p|n]){8}))",
-        "description":"检测到寻找格式字符串攻击",
+        "description":"Looking for a format string attack",
         "tags":{
           "tag":"format string"
         },
@@ -894,7 +896,7 @@
       {
         "id":"76",
         "rule":"(?:(union(.*)select(.*)from))",
-        "description":"检测到基本的SQL注入。常见的MySQL，Oracle及其他攻击字符串.",
+        "description":"Looking for basic sql injection. Common attack string for mysql, oracle and others.",
         "tags":{
           "tag":[
             "sql injection",
@@ -906,7 +908,7 @@
       {
         "id":"77",
         "rule":"(?:^(-0000023456|4294967295|4294967296|2147483648|2147483647|0000012345|-2147483648|-2147483649|0000023456|2.2250738585072007e-308|1e309)$)",
-        "description":"检测到整数溢出攻击",
+        "description":"Looking for intiger overflow attacks, these are taken from skipfish, except 2.2250738585072007e-308 is the \"magic number\" crash",
         "tags":{
           "tag":[
             "sql injection",
@@ -918,7 +920,7 @@
       {
         "id":"78",
         "rule":"(?:%23.*?%0A)",
-        "description":"检测到SQL注释符",
+        "description":"Detects SQL comment filter evasion",
         "tags":{
           "tag":[
             "format string"
